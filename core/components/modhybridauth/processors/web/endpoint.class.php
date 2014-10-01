@@ -273,26 +273,7 @@ class modHybridAuthWebEndpointProcessor extends modProcessor{
         
         // Save profile data in session
         $profile = $hauth->adapter->getUserProfile();
-        
-        // Try to get user by social profile
-        /*$q = $this->modx->newQuery('modUser');
-        $q->innerJoin('modUserProfile', 'Profile');
-        $q->innerJoin('modHybridAuthUserProfile', 'SocialProfile');
-        $q->innerJoin('modHybridAuthProvider', 'Provider', "Provider.id=SocialProfile.provider");
-        $q->where(array(
-            "SocialProfile.identifier"  => $profile->identifier,
-            "Provider.name"     => $provider,
-            "modUser.active"    => 1,
-            "Profile.blocked"   => 0,
-        ));
-        $q->limit(1);
-        
-        if($user = $this->modx->getObject('modUser', $q)){
-            $user->addSessionContext($this->modx->context->key);
-            $redirectTo = $this->modx->getOption('site_url');
-            $this->modx->sendRedirect($redirectTo);
-            return;
-        }*/
+      
         
         // else
         

@@ -58,10 +58,10 @@ class modHybridAuthWebProfileAuthProcessor extends modProcessor{
             // Try to get user by social profile
             $q = $this->modx->newQuery('modUser');
             $q->innerJoin('modUserProfile', 'Profile');
-            $q->innerJoin('modHybridAuthUserProfile', 'SocialProfile');
-            $q->innerJoin('modHybridAuthProvider', 'Provider', "Provider.id=SocialProfile.provider");
+            $q->innerJoin('modHybridAuthUserProfile', 'SocialProfiles');
+            $q->innerJoin('modHybridAuthProvider', 'Provider', "Provider.id=SocialProfiles.provider");
             $q->where(array(
-                "SocialProfile.identifier"  => $user_profile->identifier,
+                "SocialProfiles.identifier"  => $user_profile->identifier,
                 "Provider.name"     => $provider,
                 "modUser.active"    => 1,
                 "Profile.blocked"   => 0,

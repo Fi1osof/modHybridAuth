@@ -2,7 +2,7 @@
 
 $xpdo_meta_map = array ();
 
-$this->map['modUser']['composites']['SocialProfile'] = array(
+$this->map['modUser']['composites']['SocialProfiles'] = array(
     'class' => 'modHybridAuthUserProfile',
     'local' => 'id',
     'foreign' => 'internalKey',

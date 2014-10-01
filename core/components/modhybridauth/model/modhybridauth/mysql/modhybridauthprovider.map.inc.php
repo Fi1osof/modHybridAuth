@@ -71,7 +71,7 @@ $xpdo_meta_map['modHybridAuthProvider']= array (
     ),
   ),
     'composites'  => array (
-        'SocialProfile' => array (
+        'SocialProfiles' => array (
             'class' => 'modHybridAuthUserProfile',
             'local' => 'id',
             'foreign' => 'provider',
