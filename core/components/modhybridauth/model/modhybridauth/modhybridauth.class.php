@@ -35,6 +35,9 @@ class modHybridAuth{
             $assetsUrl = $this->modx->getOption('assets_url').'components/modhybridauth/';
         };
         
+        // Удаляем слеш в начале УРЛа, так как Яша не понимает двойной слош в УРЛе (не протоколе)
+        $assetsUrl = preg_replace('/^\/+/', '', $assetsUrl);
+        
         $connectorUrl = $assetsUrl.'connector.php';
         
 
@@ -75,7 +78,10 @@ class modHybridAuth{
         }
         
         if(!$base_url = $modx->getOption('modhybridauth.base_url')){
-            $base_url = $modx->getOption('site_url'). 'assets/components/modhybridauth/connectors/profile/auth.php';
+            $base_url = $modx->getOption('site_url').  $assetsUrl . 'connectors/profile/auth.php';
+             
+            
+            # exit;
         }
         
         $this->providers_config = array(
@@ -233,7 +239,3 @@ class Hybrid_Storage
 		$_SESSION["HA::STORE"] = unserialize( $sessiondata );
 	} 
 }
-
-
-
-
